@@ -152,7 +152,6 @@ class Game
         $stdin = fopen("php://stdin", "r");
         $choice = trim(fgets($stdin));
 
-        // === CHOIX COULEUR VALIDE ===
         $validColors = ['rouge', 'vert', 'bleu'];
         do {
             echo "Choisissez la couleur de votre kart (rouge / vert / bleu) :\n> ";
@@ -162,7 +161,6 @@ class Game
             }
         } while (!in_array($color, $validColors));
 
-        // === CHOIX MOTEUR LIBRE ===
         echo "Choisissez le type de moteur (Standard / Turbo / Électrique) :\n> ";
         $engine = trim(fgets($stdin));
 
