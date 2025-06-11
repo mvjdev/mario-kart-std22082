@@ -103,7 +103,7 @@ class Driver
     public function playTurn(): void
     {
         $dice = rand(1, 6);
-        echo "🎲 {$this->name} lance le dé : $dice\n";
+        echo " {$this->name} lance le dé : $dice\n";
 
         if ($dice == 6 && $this->stability < 2) {
             echo "{$this->name} a glissé ! Il ne bouge pas ce tour.\n";
