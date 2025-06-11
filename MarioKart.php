@@ -152,9 +152,17 @@ class Game
         $stdin = fopen("php://stdin", "r");
         $choice = trim(fgets($stdin));
 
-        echo "Choisissez la couleur de votre kart :\n> ";
-        $color = trim(fgets($stdin));
+        // === CHOIX COULEUR VALIDE ===
+        $validColors = ['rouge', 'vert', 'bleu'];
+        do {
+            echo "Choisissez la couleur de votre kart (rouge / vert / bleu) :\n> ";
+            $color = strtolower(trim(fgets($stdin)));
+            if (!in_array($color, $validColors)) {
+                echo "Couleur invalide. Veuillez choisir entre rouge, vert ou bleu.\n";
+            }
+        } while (!in_array($color, $validColors));
 
+        // === CHOIX MOTEUR LIBRE ===
         echo "Choisissez le type de moteur (Standard / Turbo / Électrique) :\n> ";
         $engine = trim(fgets($stdin));
 
@@ -175,8 +183,8 @@ class Game
             return;
         }
 
-        echo "\n Départ ! {$driver->name} dans son kart ({$driver->kart->description()})\n";
-        echo "Objectif : atteindre la case 20 \n\n";
+        echo "\nDépart ! {$driver->name} dans son kart ({$driver->kart->description()})\n";
+        echo "Objectif : atteindre la case 20\n\n";
 
         while ($driver->position < 19) {
             echo "\nAppuyez sur Entrée pour jouer...";
@@ -185,10 +193,11 @@ class Game
             $driver->renderTrack();
         }
 
-        echo "\n {$driver->name} a gagné la course ! Bravo \n";
+        echo "\n{$driver->name} a gagné la course ! Bravo\n";
         fclose($stdin);
     }
 }
+
 
 $game = new Game();
 $game->start();
