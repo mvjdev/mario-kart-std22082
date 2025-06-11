@@ -1,5 +1,11 @@
 # Examen Prog-5 — Mario Kart Simulator
 
+## POUR LANCER LE PROJET IL FAUT FAIRE
+
+```
+php MarioKart.php
+```
+
 **Durée : 2 heures**  
 **Langage libre** (Python, Java, TypeScript, Javascript, php, go, etc.)  
 **Cahier de leçons autorisé – Internet autorisé - IA strictement interdit**
